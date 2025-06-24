@@ -12,10 +12,11 @@ except FileNotFoundError:
     exit()
 
 while True:
-    print("[1] Add new password\n[2] View all entries \n[3] Search by site\n[4] Delete an entry\n[5] Exit")
+    print("[1] Add new password\n[2] View all entries \n[3] Search by site\n[4] Delete an entry\n"
+    "[5] Generate password\n[6] Exit")
     
     try:
-        choice = int(input("Choose an option (1-5): ").strip())
+        choice = int(input("Choose an option (1-6): ").strip())
     except ValueError:
         print("Input a number.")
         continue
@@ -35,5 +36,9 @@ while True:
         siteinp = input("site: ")
         logic.delete_password(siteinp)
     elif choice == 5:
+        site = input("site: ").strip()
+        user = input("username or email: ")
+        logic.generate_password(site, user)
+    elif choice == 6:
         print("Goodbye.")
         break
